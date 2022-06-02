@@ -53,7 +53,7 @@ function didWinAnyColumn(letter) {
 		);
 	});
 }
-
+//if any won win in the same row or colum or cros
 function didSomeoneWin(letter) {
 	const fromAnyRow = didWinAnyRow(letter);
 	const fromAnyCol = didWinAnyColumn(letter);
@@ -71,11 +71,11 @@ function printGame() {
 		console.log('---------');
 	}
 }
-
+//choice any round place
 function getRandomInt(min, max) {
 	return Math.round(Math.random() * (max - min)) + min;
 }
-
+// place not availbel randem
 function getRandomPlace() {
 	const randomIndex = getRandomInt(0, places.length - 1);
 	const randomPlace = places[randomIndex];
@@ -84,12 +84,13 @@ function getRandomPlace() {
 
 	return randomPlace;
 }
-
+//  place availbel randem
 function playRandomly(letter) {
 	const place = getRandomPlace();
 	game[place.row][place.column] = letter;
 }
 
+// print x or o if win
 function printIfSomeoneWin() {
 	return ['X', 'O'].some((letter) => {
 		if (didSomeoneWin(letter)) {
@@ -100,10 +101,11 @@ function printIfSomeoneWin() {
 	});
 }
 
+// chech if plase available
 function isThisPlaceAvailable(place) {
 	return places.some((p) => p.row === place.row && p.column === place.column);
 }
-
+// ask the user to choice plase
 async function playUserOrBot(letter, userChoice) {
 	if (letter === userChoice) {
 		printGame();
@@ -128,6 +130,7 @@ async function playUserOrBot(letter, userChoice) {
 		playRandomly(letter);
 	}
 }
+
 
 async function startGame(userChoice) {
 	let howManyTime = 0;
