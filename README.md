@@ -1,1 +1,0 @@
-# tuwaq-js-hw1
